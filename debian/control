@@ -1,0 +1,42 @@
+Source: xmlrpc-epi
+Priority: extra
+Maintainer: Robin Cornelius <robin.cornelius@gmail.com>
+Uploaders: Paul TBBle Hampson <paul.hampson@pobox.com>
+Homepage: http://xmlrpc-epi.sourceforge.net/
+Build-Depends: debhelper (>= 8.1.3~), autotools-dev, libexpat1-dev, pkg-config, dh-autoreconf
+Standards-Version: 3.9.2
+Section: libs
+Vcs-GIT: git://github.com/robincornelius/xmlrpc-epi-debian.git
+Vcs-Browser: https://github.com/robincornelius/xmlrpc-epi-debian
+
+Package: libxmlrpc-epi-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libxmlrpc-epi0 (= ${binary:Version}), ${misc:Depends}
+Description: Development files for libxmlrpc-epi0, a XML-RPC request library
+ An implementation of the XML-RPC protocol, providing an API for developers to
+ serialise RPC requests to and from XML. It does not include any transport layer
+ and is therefor useful for applications which implement their own transport or
+ wish to use XML-RPC over an existing transport layer. This package contains
+ the development files for applications wishing to use libxmlrpc-epi.
+
+Package: libxmlrpc-epi0
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: XML-RPC request serialisation/deserialisation library
+ A library that implements a transportless implementation of the XML-RPC
+ protocol.
+
+Package: libxmlrpc-epi0-dbg
+Section: debug
+Architecture: any
+Depends: libxmlrpc-epi0 (= ${binary:Version}), ${misc:Depends}
+Description: Debug symbols for libxmlrpc-epi0, a XML-RPC request library
+ This package contains the debug symbols for libxmlrpc-epi0, and should be
+ installed if you wish to get stack traces into the library for debugging
+ purposes.
+
